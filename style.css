@@ -821,12 +821,13 @@ p {
 .template-name {
     font-size: 1.5rem;
     font-weight: 700;
+    display: inline-block;
     /* Gradient Text */
     background: linear-gradient(270deg, #111827, #4f46e5, #9333ea, #111827);
     background-size: 300% 300%;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     background-clip: text;
+    -webkit-text-fill-color: transparent;
     color: transparent;
     animation: gradient-shift 6s ease infinite;
 }
@@ -851,12 +852,13 @@ p {
 .carousel-template-name {
     font-size: 1.5rem;
     font-weight: 700;
+    display: inline-block;
     /* Gradient Text */
     background: linear-gradient(270deg, #111827, #2563eb, #db2777, #111827);
     background-size: 300% 300%;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     background-clip: text;
+    -webkit-text-fill-color: transparent;
     color: transparent;
     animation: gradient-shift 6s ease infinite;
 }

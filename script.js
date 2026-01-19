@@ -1,16 +1,32 @@
 document.addEventListener('DOMContentLoaded', async () => {
     // Array of known JPG filenames
+    // Added 04.jpg since we verified it exists
     const jpgFiles = [
         '01.jpg',
         '02.jpg',
-        '03.jpg'
+        '03.jpg',
+        '04.jpg'
     ];
 
+    // --- Page Logic Routing ---
+    const carouselContainer = document.getElementById('carousel-container');
+    const templatesGrid = document.getElementById('templates-grid');
+
+    // Initial Render (Dont wait for discovery)
+    if (carouselContainer) {
+        initCarousel();
+    }
+
+    if (templatesGrid) {
+        renderTemplatesGrid();
+    }
+
     // --- Dynamic Image Discovery ---
-    // Automatically looks for 04.jpg, 05.jpg... and adds them to the list
+    // Automatically looks for 05.jpg, 06.jpg... and adds them to the list
     const discoverImages = async () => {
-        let nextIndex = 4; // Start searching from 04.jpg
+        let nextIndex = 5; // Start searching from 05.jpg (since we know 04 exists)
         let searching = true;
+        let newFound = false;
 
         while (searching) {
             const filename = nextIndex.toString().padStart(2, '0') + '.jpg';
@@ -21,6 +37,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                     const img = new Image();
                     img.onload = () => resolve();
                     img.onerror = () => reject();
+                    // Add a timeout to prevent hanging forever
+                    setTimeout(() => reject(), 5000);
                     img.src = filePath;
                 });
 
@@ -28,30 +46,35 @@ document.addEventListener('DOMContentLoaded', async () => {
                 console.log(`Discovered new template: ${filename}`);
                 jpgFiles.push(filename);
                 nextIndex++;
+                newFound = true;
+
+                // Update UI incrementally if on templates page
+                if (templatesGrid) {
+                    renderTemplatesGrid();
+                }
+
             } catch (error) {
                 // Image does not exist, stop searching
                 searching = false;
             }
         }
+
+        if (newFound) {
+            // Ensure sorted
+            jpgFiles.sort();
+            // Re-render to ensure correct order
+            if (templatesGrid) renderTemplatesGrid();
+            if (carouselContainer) {
+                // For carousel, we might just want to update the current view if needed, 
+                // but usually it dynamically reads the array, so next click will work.
+                // We could force a re-render of current slide to be safe but it's fine.
+            }
+        }
     };
 
-    // Wait for discovery to finish before rendering
-    await discoverImages();
+    // Start discovery in background (No await)
+    discoverImages();
 
-    // Re-sort to ensure order if necessary, though discovery adds in order
-    jpgFiles.sort();
-
-    // --- Page Logic Routing ---
-    const carouselContainer = document.getElementById('carousel-container');
-    const templatesGrid = document.getElementById('templates-grid');
-
-    if (carouselContainer) {
-        initCarousel();
-    }
-
-    if (templatesGrid) {
-        renderTemplatesGrid();
-    }
 
     // --- Carousel Logic (index.html) ---
     function initCarousel() {
@@ -74,9 +97,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             const filePath = 'cv_templates/' + filename;
 
             // Create Image tag
-            carouselContainer.innerHTML = `
-                <img src="${filePath}" alt="CV Template ${currentIndex + 1}" class="template-image">
-            `;
+            if (carouselContainer) {
+                carouselContainer.innerHTML = `
+                    <img src="${filePath}" alt="CV Template ${currentIndex + 1}" class="template-image">
+                `;
+            }
 
             // Update Name Display
             if (templateNameDisplay) {
@@ -103,7 +128,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // --- Grid Logic (templates.html) ---
     function renderTemplatesGrid() {
-        templatesGrid.innerHTML = ''; // Clear placeholder
+        if (!templatesGrid) return;
+
+        templatesGrid.innerHTML = ''; // Clear placeholder/previous content
 
         jpgFiles.forEach((filename, index) => {
             const filePath = 'cv_templates/' + filename;

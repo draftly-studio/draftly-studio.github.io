@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Templates | Draftly Studio</title>
+    <meta name="description" content="Browse our collection of professional CV templates.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo-link">
+                <img src="logo/logo.png" alt="Draftly Studio Logo" class="logo">
+                <span class="brand-name">Draftly Studio</span>
+            </a>
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="templates.html" class="active">Templates</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li>
+                    <a href="https://wa.me/447438332988" target="_blank" class="btn-whatsapp">
+                        <img src="logo/WhatsApp_icon.png" alt="WhatsApp" style="width: 20px; height: 20px;">
+                        WhatsApp
+                    </a>
+                </li>
+                <li><a href="index.html" class="btn-primary-white">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="section" style="padding-bottom: 40px; background-color: var(--bg-secondary);">
+        <div class="container" style="text-align: center;">
+            <h1 class="section-title">All Templates</h1>
+            <p class="section-subtitle">Choose the perfect design for your career path.</p>
+        </div>
+    </header>
+
+    <!-- Templates Grid Section -->
+    <section id="all-templates" class="section" style="padding-top: 0; background-color: var(--bg-secondary);">
+        <div class="container">
+            <div id="templates-grid" class="templates-grid">
+                <!-- Templates will be injected here by script.js -->
+                <div class="template-placeholder">Loading Templates...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <img src="logo/logo.png" alt="Draftly Studio" class="footer-logo">
+                <p>Copyright © 2024 Draftly Studio. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="mailto:the.draftly.studio@gmail.com">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

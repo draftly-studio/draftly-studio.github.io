@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV Templates | Draftly Studio</title>
     <meta name="description" content="Browse our collection of professional CV templates.">
+    <meta property="og:title" content="CV Templates | Draftly Studio">
+    <meta property="og:description" content="Browse our collection of professional CV templates.">
+    <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -30,16 +33,17 @@
                 </svg>
             </button>
             <ul class="nav-links">
-                <li><a href="index.html#services">Services</a></li>
-                <li><a href="templates.html" class="active">Templates</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="templates.html" class="active-link">Templates</a></li>
                 <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
                 <li>
                     <a href="https://wa.me/447438332988" target="_blank" class="btn-whatsapp">
                         <img src="logo/WhatsApp_icon.png" alt="WhatsApp" style="width: 20px; height: 20px;">
                         WhatsApp
                     </a>
                 </li>
-                <li><a href="index.html" class="btn-primary-white">Home</a></li>
             </ul>
         </div>
     </nav>
@@ -56,8 +60,53 @@
     <section id="all-templates" class="section" style="padding-top: 0; background-color: var(--bg-secondary);">
         <div class="container">
             <div id="templates-grid" class="templates-grid">
-                <!-- Templates will be injected here by script.js -->
-                <div class="template-placeholder">Loading Templates...</div>
+                <!-- Static Fallback Grid (Replaced by JS if successful) -->
+                <!-- If JS fails, this remains visible -->
+
+                <div class="template-card">
+                    <div class="template-image-wrapper"
+                        style="display: flex; align-items: center; justify-content: center; background: #eee;">
+                        <span style="color: #999;">Preview 1</span>
+                    </div>
+                    <div class="template-info">
+                        <h3 class="template-name">Template 01</h3>
+                    </div>
+                </div>
+                <div class="template-card">
+                    <div class="template-image-wrapper"
+                        style="display: flex; align-items: center; justify-content: center; background: #eee;">
+                        <span style="color: #999;">Preview 2</span>
+                    </div>
+                    <div class="template-info">
+                        <h3 class="template-name">Template 02</h3>
+                    </div>
+                </div>
+                <div class="template-card">
+                    <div class="template-image-wrapper"
+                        style="display: flex; align-items: center; justify-content: center; background: #eee;">
+                        <span style="color: #999;">Preview 3</span>
+                    </div>
+                    <div class="template-info">
+                        <h3 class="template-name">Template 03</h3>
+                    </div>
+                </div>
+                <div class="template-card">
+                    <div class="template-image-wrapper"
+                        style="display: flex; align-items: center; justify-content: center; background: #eee;">
+                        <span style="color: #999;">Preview 4</span>
+                    </div>
+                    <div class="template-info">
+                        <h3 class="template-name">Template 04</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 32px; color: var(--text-secondary);">
+                <p>More templates added regularly.</p>
+                <div style="margin-top: 16px;">
+                    <a href="https://wa.me/447438332988" style="color: var(--accent-color); font-weight: 500;">DM on
+                        WhatsApp to request a custom style &rarr;</a>
+                </div>
             </div>
 
             <!-- WhatsApp CTA (Added below grid) -->
@@ -82,9 +131,9 @@
                 <p>Copyright © 2024 Draftly Studio. All rights reserved.</p>
             </div>
             <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="mailto:the.draftly.studio@gmail.com">Contact Us</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="contact.html">Contact Us</a>
             </div>
         </div>
     </footer>
